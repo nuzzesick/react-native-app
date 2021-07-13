@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+const App = () => {
+  const [number, setNumber] = useState(0);
+  const handleNumber = () => {
+    setNumber(number + 1);
+  }
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text onPress={handleNumber}>Increase {number}</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -19,3 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
+
